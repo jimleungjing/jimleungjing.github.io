@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Test]]></title>
     <url>%2F2018%2F10%2F21%2FTest%2F</url>
-    <content type="text"><![CDATA[12345678910#include&lt;iostream&gt;using namespace std; int main()&#123; int a,b; a = 1; b = 2; if(a &gt; b) cout &lt;&lt; "Good!" &lt;&lt; endl ; return 1;&#125; Good\sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6}$ \hat{\mathbf{x}} = \cap$]]></content>
+    <content type="text"><![CDATA[Code12345678910#include&lt;iostream&gt;using namespace std; int main()&#123; int a,b; a = 1; b = 2; if(a &gt; b) cout &lt;&lt; "Good!" &lt;&lt; endl ; return 1;&#125; Equation\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6} $ \int_{0}^{\infty} e^{-x^2}dx = \frac{\sqrt{\pi}}{2} $]]></content>
       <categories>
         <category>Misc</category>
         <category>C++</category>
