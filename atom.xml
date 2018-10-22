@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Jim&#39;s Starship</title>
+  
+  <subtitle>To boldly go where no one has gone before.</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://jimleungjing.github.io/"/>
+  <updated>2018-10-22T15:34:18.023Z</updated>
+  <id>http://jimleungjing.github.io/</id>
+  
+  <author>
+    <name>Jim Leung</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Demo</title>
+    <link href="http://jimleungjing.github.io/2018/10/21/Test/"/>
+    <id>http://jimleungjing.github.io/2018/10/21/Test/</id>
+    <published>2018-10-21T09:18:28.000Z</published>
+    <updated>2018-10-22T15:34:18.023Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>; </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    a = <span class="number">1</span>;</span><br><span class="line">    b = <span class="number">2</span>;</span><br><span class="line">    <span class="keyword">if</span>(a &gt; b)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; <span class="string">"Good!"</span> &lt;&lt; <span class="built_in">endl</span> ;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h2 id="Equation"><a href="#Equation" class="headerlink" title="Equation"></a>Equation</h2><script type="math/tex; mode=display">\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6}</script><p align="center"> $ \int_{0}^{\infty} e^{-x^2}dx = \frac{\sqrt{\pi}}{2} $ </p><font color="#0684bd"> <b>This is a blue line!</b> </font><br><font color="#ff2a2a"> <i>Italics</i> </font>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;Code&quot;&gt;&lt;a href=&quot;#Code&quot; class=&quot;headerlink&quot; title=&quot;Code&quot;&gt;&lt;/a&gt;Code&lt;/h2&gt;&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;
+      
+    
+    </summary>
+    
+      <category term="Misc" scheme="http://jimleungjing.github.io/categories/Misc/"/>
+    
+      <category term="Demo" scheme="http://jimleungjing.github.io/categories/Misc/Demo/"/>
+    
+      <category term="C++" scheme="http://jimleungjing.github.io/categories/C/"/>
+    
+    
+      <category term="C++" scheme="http://jimleungjing.github.io/tags/C/"/>
+    
+      <category term="test" scheme="http://jimleungjing.github.io/tags/test/"/>
+    
+  </entry>
+  
+</feed>

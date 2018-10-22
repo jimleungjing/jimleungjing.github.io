@@ -3,19 +3,15 @@
   <entry>
     <title><![CDATA[Demo]]></title>
     <url>%2F2018%2F10%2F21%2FTest%2F</url>
-    <content type="text"><![CDATA[Code12345678910#include&lt;iostream&gt;using namespace std; int main()&#123; int a,b; a = 1; b = 2; if(a &gt; b) cout &lt;&lt; "Good!" &lt;&lt; endl ; return 1;&#125; Equation\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6} $ \int_{0}^{\infty} e^{-x^2}dx = \frac{\sqrt{\pi}}{2} $]]></content>
+    <content type="text"><![CDATA[Code12345678910#include&lt;iostream&gt;using namespace std; int main()&#123; int a,b; a = 1; b = 2; if(a &gt; b) cout &lt;&lt; "Good!" &lt;&lt; endl ; return 1;&#125; Equation\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6} $ \int_{0}^{\infty} e^{-x^2}dx = \frac{\sqrt{\pi}}{2} $ This is a blue line! Italics]]></content>
       <categories>
         <category>Misc</category>
+        <category>Demo</category>
         <category>C++</category>
       </categories>
       <tags>
         <tag>C++</tag>
         <tag>test</tag>
       </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2018%2F10%2F21%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
   </entry>
 </search>
