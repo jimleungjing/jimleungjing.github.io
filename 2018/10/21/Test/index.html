@@ -7,7 +7,7 @@
 
 <html class="theme-next pisces use-motion" lang="">
 <head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+  <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
@@ -135,7 +135,7 @@
 
 
 
-  <title>Demo | Jim's Starship</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>Demo | Jim's Starship</title>
   
 
 
@@ -154,9 +154,8 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
-
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
@@ -281,6 +280,23 @@
 
 
 
+
+<script>
+    
+    window.onload = function(){
+        var path = 'https://jimleungjing.github.io'; //这里要改成你博客的地址
+        var localhostItem = String(window.location).split(path)[1];
+        var LiNode = document.querySelectorAll('#menu > li > a')
+        
+        for(var i = 0; i< LiNode.length;i++){
+            var item = String(LiNode[i].href).split(path)[1];
+            if(item == localhostItem && item != undefined){
+                LiNode[i].setAttribute('style','border-bottom:1px solid black');
+            }
+        }
+    };
+
+</script>
  </div>
     </header>
 
@@ -459,9 +475,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/C/" rel="tag"><i class="fa fa-tag"></i> C++</a>
           
-            <a href="/tags/test/" rel="tag"># test</a>
+            <a href="/tags/test/" rel="tag"><i class="fa fa-tag"></i> test</a>
           
         </div>
       
@@ -593,7 +609,7 @@
                   <span class="links-of-author-item">
                     <a href="https://github.com/jimleungjing" target="_blank" title="GitHub">
                       
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                        <i class="fa fa-fw fa-github-alt"></i>GitHub</a>
                   </span>
                 
                   <span class="links-of-author-item">
@@ -648,7 +664,7 @@
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
-    <i class="fa fa-user"></i>
+    <i class="fa fa-heartbeat"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Jim Leung</span>
 
@@ -670,10 +686,12 @@
 <div>
 <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="busuanzi_container_site_pv" style="display:none">
+     <i class="fa fa-eye"></i>
     Total views <span id="busuanzi_value_site_pv"></span>
     <span class="post-meta-divider">|</span>
 </span>
 <span id="busuanzi_container_site_uv" style="display:none">
+    <i class="fa fa-user"></i>
     Total visitors <span id="busuanzi_value_site_uv"></span>
 </span>
 </div>
@@ -1312,7 +1330,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
@@ -1320,5 +1338,8 @@
 
   
 
+  <!-- click heart -->
+  <!-- script type="text/javascript" src="/js/src/love.js"></script>
 </body>
 </html>
+--></body></html>
