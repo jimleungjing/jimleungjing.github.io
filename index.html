@@ -319,7 +319,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://jimleungjing.github.io/2018/10/21/Test/">
+    <link itemprop="mainEntityOfPage" href="http://jimleungjing.github.io/2018/11/08/BPTT/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jim Leung">
@@ -338,7 +338,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2018/10/21/Test/" itemprop="url">Demo</a></h1>
+                <a class="post-title-link" href="/2018/11/08/BPTT/" itemprop="url">The Computation of Gradients on RNN by BPTT</a></h1>
         
 
         <div class="post-meta">
@@ -350,8 +350,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-21T17:18:28+08:00">
-                2018-10-21
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T16:53:42+08:00">
+                2018-11-08
               </time>
             
 
@@ -373,30 +373,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Misc/" itemprop="url" rel="index">
-                    <span itemprop="name">Misc</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Misc/Demo/" itemprop="url" rel="index">
-                    <span itemprop="name">Demo</span>
-                  </a>
-                </span>
-
-                
-                
-                  , 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
                   </a>
                 </span>
 
@@ -413,8 +391,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/21/Test/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/21/Test/" itemprop="commentCount"></span>
+                <a href="/2018/11/08/BPTT/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/08/BPTT/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,7 +400,7 @@
 
           
           
-             <span id="/2018/10/21/Test/" class="leancloud_visitors" data-flag-title="Demo">
+             <span id="/2018/11/08/BPTT/" class="leancloud_visitors" data-flag-title="The Computation of Gradients on RNN by BPTT">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -455,17 +433,181 @@
       
         
           
-          Code12345678910#include&lt;iostream&gt;using namespace std; int main()&#123;    int a,b;    a = 1;    b = 2;    if(a &gt; b)        cout &lt;&lt; "Good!" &lt;&lt; endl ;    return 1;&#125;
-Equation\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6} $ \int_{0}^{\infty} e^{-x^2}dx = \frac{\sqrt{\pi}}{2} $ 
-
- This is a blue line! 
-
- Italics 
-
-          
+          &emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN by backforward propagation through time(BPTT). I assume that you have known the concept of backward-propagation algorithm, recurrent neural networks(R
+          ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2018/10/21/Test/#more" rel="contents">
+            <a class="btn" href="/2018/11/08/BPTT/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jimleungjing.github.io/2018/10/23/LSTM/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jim Leung">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jim's Starship">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/10/23/LSTM/" itemprop="url">An Overview to LSTM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-23T23:53:42+08:00">
+                2018-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Paper-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Paper Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/23/LSTM/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/10/23/LSTM/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/10/23/LSTM/" class="leancloud_visitors" data-flag-title="An Overview to LSTM">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          
+The Problem LSTM Addressed&emsp;In the past decades, recurrent neural networks (RNNs) have been successufully applied to a variety problems: speech recognition, language modeling, prediction, etc. RNNs can use their internal state to process sequences of inputs and persist information as shown below in Fig. 1.&emsp;However, the RNNs don’t seem to 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/23/LSTM/#more" rel="contents">
               Read more &raquo;
             </a>
           </div>
@@ -551,7 +693,7 @@ Equation\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6} $ \int_{0}^{\
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -562,7 +704,7 @@ Equation\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6} $ \int_{0}^{\
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -573,7 +715,7 @@ Equation\sum_{i=0}^{n} i^2 = \sum_{i=0}^{n} \frac{n(n+1)(2n+1)}{6} $ \int_{0}^{\
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

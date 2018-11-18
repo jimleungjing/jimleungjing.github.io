@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Welcome!">
+  <meta name="keywords" content="RNN,BPTT,">
 
 
 
@@ -88,16 +88,20 @@
 
 
 
-<meta name="description" content="Nothing is impossible">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jim&#39;s Starship">
-<meta property="og:url" content="http://jimleungjing.github.io/tags/test/index.html">
+<meta name="description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN">
+<meta name="keywords" content="RNN,BPTT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Computation of Gradients on RNN by BPTT">
+<meta property="og:url" content="http://jimleungjing.github.io/2018/11/08/BPTT/index.html">
 <meta property="og:site_name" content="Jim&#39;s Starship">
-<meta property="og:description" content="Nothing is impossible">
+<meta property="og:description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://jimleungjing.github.io/2018/11/08/BPTT/RNN.png">
+<meta property="og:updated_time" content="2018-11-18T14:09:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jim&#39;s Starship">
-<meta name="twitter:description" content="Nothing is impossible">
+<meta name="twitter:title" content="The Computation of Gradients on RNN by BPTT">
+<meta name="twitter:description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN">
+<meta name="twitter:image" content="http://jimleungjing.github.io/2018/11/08/BPTT/RNN.png">
 
 
 
@@ -127,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://jimleungjing.github.io/tags/test/">
+  <link rel="canonical" href="http://jimleungjing.github.io/2018/11/08/BPTT/">
 
 
 
 
 
-  <title>Tag: test | Jim's Starship</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>The Computation of Gradients on RNN by BPTT | Jim's Starship</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -152,7 +156,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
@@ -304,52 +308,485 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>test<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jimleungjing.github.io/2018/11/08/BPTT/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jim Leung">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jim's Starship">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/10/21/Test/" itemprop="url">
-              
-                <span itemprop="name">Demo</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">The Computation of Gradients on RNN by BPTT</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2018-10-21T17:18:28+08:00" content="2018-10-21">
-          10-21
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T16:53:42+08:00">
+                2018-11-08
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deep-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Deep Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/08/BPTT/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/08/BPTT/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/08/BPTT/" class="leancloud_visitors" data-flag-title="The Computation of Gradients on RNN by BPTT">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <p>&emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN by backforward propagation through time(BPTT). I assume that you have known the concept of backward-propagation algorithm, <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener">recurrent neural networks</a>(RNN), <a href="http://math.mit.edu/~gs/linearalgebra/" target="_blank" rel="noopener">linear algebra</a> and <a href="https://en.wikipedia.org/wiki/Matrix_calculus" target="_blank" rel="noopener">matrix calculus</a> before the exploration.</p>
+<h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><p>&emsp;These notations used in the following computation refer to the book <a href="http://www.deeplearningbook.org" target="_blank" rel="noopener"><em>Deep Learning</em></a>.<br>$<br>\begin{array}{l|l}\hline<br>a &amp; \text{Scalar a}\\\hline<br>\boldsymbol{x} &amp; \text{Vector x} \\\hline<br>\boldsymbol{1}_{n} &amp; \text{A vector [1,1,…,1] with n column}\\\hline<br>\boldsymbol{A} &amp; \text{Matrix A}\\\hline<br>\boldsymbol{A}^{-1} &amp; \text{The inverse matrix of matrix A}\\\hline<br>\boldsymbol{A}^{\mathsf{T}} &amp; \text{Transpose of matrix A}\\\hline<br>\text{diag}(\boldsymbol{a}) &amp; \text{Diagnal matrix with diagnal entries gieven by }\boldsymbol{a}\\\hline<br>\boldsymbol{I} &amp; \text{Identity matrix}\\\hline<br>\nabla_{\boldsymbol{x}}y &amp; \text{Gradient }y\text{ with respect to }\boldsymbol{x} \\\hline<br>\frac{\partial{y}}{\partial{x}} &amp; \text{Partial derivative of } y \text{ with respect to }x\\\hline<br>\frac{\partial{\boldsymbol{y}}}{\partial{\boldsymbol{x}}} &amp; \text{Jacobian matrix }\boldsymbol{J} \in \mathbb{R}^{m \times n} \text{of } f:\mathbb{R}^{n}\to\mathbb{R}^{m} \\\hline<br>\end{array}<br>$</p>
+<h2 id="Review-of-RNN"><a href="#Review-of-RNN" class="headerlink" title="Review of RNN"></a>Review of RNN</h2><!--
+在align环境中根据'&'对齐文本
+-->
+<p><center><img src="/2018/11/08/BPTT/RNN.png" alt="The computational graph of RNN" width="70%" length="70%"></center></p>
+<p></p><p style="text-align:center">
+Fig 2.1: The computational graph of RNN, copied from <i>Deep Leaerning</i>
+</p><br>&emsp;Let’s develop the forward propagation equations for the RNN dipcted in Fig 2.1. As a convenience, we use right superscription to indiacte the specified state of RNN at some time $ t $.<br>To represent the hidden units of the network, we use the variable $ \boldsymbol{h} $, which will be the input of hyperbolic tangent activation function. As you see, the RNN has input-to-hidden connections parametrized by a weight matrix $ \boldsymbol{U} $, hidden-to-hidden connections parametrized by a weight matrix $ \boldsymbol{W} $, hidden-to-output connections parametrized by a weight matrix $ \boldsymbol{V} $. We can apply the softmax operation to the output $ \boldsymbol{o} $ to obtain a vector $ \boldsymbol{\hat{y}} $ of normalized probabilities over the output. We define the loss function as the negative log-likelihood of output vector $ \boldsymbol{\hat{y}} $ given the training target $ \boldsymbol{y} $. With notations and definitions made, we have the following equations:<p></p>
+<script type="math/tex; mode=display">
+\left\{
+\begin{aligned}
+\boldsymbol{a}^{(t)} &= \boldsymbol{b} + \boldsymbol{Wh}^{(t-1)} + \boldsymbol{Ux}^{(t)} &\qquad (2.1)\\
+\boldsymbol{h}^{(t)} &= \text{tanh}(\boldsymbol{a}^{(t)}) &\qquad (2.2)\\
+\boldsymbol{o}^{(t)} &= \boldsymbol{c} + \boldsymbol{Vh}^{(t)} &\qquad (2.3)\\
+\boldsymbol{\hat{y}}^{(t)} &= \text{softmax}(\boldsymbol{o}^{(t)}) &\qquad (2.4)\\
+L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{(t)}) &\qquad (2.5)
+\end{aligned}
+\right.</script><h2 id="Taking-the-Derivatives"><a href="#Taking-the-Derivatives" class="headerlink" title="Taking the Derivatives"></a>Taking the Derivatives</h2><p>&emsp;Known the notations and concepts above, we can compute the gradients by BPTT using the <a href="https://en.wikipedia.org/wiki/Matrix_calculus#Identities" target="_blank" rel="noopener">identities</a> below.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Conditions</th>
+<th style="text-align:center">Expression</th>
+<th style="text-align:center">Denominator layout</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><script type="math/tex">a = a(\boldsymbol{x}), \boldsymbol{u = u}(\boldsymbol{x})</script></td>
+<td style="text-align:center"><script type="math/tex">\frac{\partial{a\boldsymbol{u}}}{\partial{\boldsymbol{x}}}</script></td>
+<td style="text-align:center"><script type="math/tex">a\frac{\partial{\boldsymbol{u}}}{\partial{\boldsymbol{x}}} + \frac{\partial{a}}{\partial{\boldsymbol{x}}}\boldsymbol{u}^{\mathsf{T}}</script></td>
+</tr>
+<tr>
+<td style="text-align:center">$ \boldsymbol{A} $ is not a function of $ \boldsymbol{x} $</td>
+<td style="text-align:center">$ \frac{\partial{\boldsymbol{Ax}}}{\partial{\boldsymbol{x}}} $</td>
+<td style="text-align:center">$ \boldsymbol{A}^{\mathsf{T}} $</td>
+</tr>
+<tr>
+<td style="text-align:center">$g(\boldsymbol{U})\text{ is a scalar, }\boldsymbol{U} = \boldsymbol{U}(\boldsymbol{X}) $</td>
+<td style="text-align:center">$\frac{\partial{g(\boldsymbol{U})}}{\partial{\boldsymbol{X}}_{ij}} $</td>
+<td style="text-align:center">$\text{tr}\left(\left(\frac{\partial{g(\boldsymbol{U})}}{\partial{\boldsymbol{U}}}\right)^{\mathsf{T}}\frac{\partial{\boldsymbol{U}}}{\partial{\boldsymbol{X}}_{ij}}\right) $</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>we here will give three examples of computations in detail.</p>
+<h3 id="Example-1"><a href="#Example-1" class="headerlink" title="Example 1"></a>Example 1</h3><p>To begin with, we will take the derivative of loss function $ L $ with respect to vector $ \boldsymbol{o} $. Using <a href="https://en.wikipedia.org/wiki/Matrix_calculus#Denominator-layout_notation" target="_blank" rel="noopener">denominator-layout</a> and chain rule, we have:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_{\boldsymbol{o}^{(t)}}L &= \left(
+\frac{\partial{\boldsymbol{\hat{y}}}}{\partial{\boldsymbol{o}^{(t)}}}\frac{\partial{L}}{\partial{\boldsymbol{\hat{y}}}}
+\right)
+\end{aligned}  \tag{3.1.1}</script><p>Taking the former derivative of $ \boldsymbol{\hat{y}} $ with respect to $ \boldsymbol{o} $, we get:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac
+{\partial{\boldsymbol{\hat{y}}}}
+{\partial{\boldsymbol{o}^{(t)}}}
+&= 
+\frac
+{\partial{\frac{\text{exp}(\boldsymbol{o^{(t)}})}{\boldsymbol{1_c}^{\mathsf{T}}\text{exp}(\boldsymbol{o}^{(t)})}}}
+{\partial{\boldsymbol{o}^{(t)}}}\\
+&= 
+\frac
+{1}
+{\boldsymbol{1_c}^{\mathsf{T}}\text{exp}(\boldsymbol{o}^{(t)})}
+\frac
+{\partial{\text{exp}(\boldsymbol{o}^{(t)})}}
+{\partial{\boldsymbol{o}^{(t)}}}
++
+\frac
+{\partial{\frac
+            {1}
+            {\boldsymbol{1_c}^{\mathsf{T}}\text{exp}(\boldsymbol{o}^{(t)})}}}
+{\partial{\boldsymbol{o}^{(t)}}}
+\text{exp}(\boldsymbol{o}^{(t)})^{\mathsf{T}}\\
+&=
+\frac
+{1}
+{\boldsymbol{1_c}^{\mathsf{T}}\text{exp}(\boldsymbol{o}^{(t)})}
+\text{diag}\left(
+    \text{exp}(\boldsymbol{o}^{(t)})
+    \right)
+-\left({\frac
+    {1}
+    {\boldsymbol{1_c}^{\mathsf{T}}\text{exp}(\boldsymbol{o}^{(t)})}}
+\right)^2
+\text{exp}(\boldsymbol{o}^{(t)})
+\text{exp}(\boldsymbol{o}^{(t)})^{\mathsf{T}}\\
+&=
+\text{diag}(\boldsymbol{\hat{y}}) - \boldsymbol{\hat{y}}{\boldsymbol{\hat{y}}}^{\mathsf{T}} 
+\end{aligned} \tag{3.1.2}</script><p>For the latter partial derivative, we have:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\frac
+{\partial{L}}
+{\partial{\boldsymbol{\hat{y}}}}
+&=
+\frac
+{\partial{-\boldsymbol{y}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}})}}
+{\partial{\boldsymbol{\hat{y}}}}\\
+&=
+\frac{\partial{\text{log}(\boldsymbol{\hat{y}})}}{\partial{\boldsymbol{\hat{y}}}}
+\frac{\partial{-\boldsymbol{y}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}})}}{\partial{\text{log}(\boldsymbol{\hat{y}})}}\\
+&=
+\text{diag}(\boldsymbol{\hat{y}})^{-1}(-\boldsymbol{y})
+\end{aligned} \tag{3.1.3}</script><p>Therefore, gradient $ \nabla_{\boldsymbol{o}^{(t)}}L $ at time step $ t $ is as follows:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_{\boldsymbol{o}^{(t)}}L &= \frac{\partial{\boldsymbol{\hat{y}}}}{\partial{\boldsymbol{o}^{(t)}}}\frac{\partial{L}}{\partial{\boldsymbol{\hat{y}}}}\\
+&=    
+\left(
+    \text{diag}(\boldsymbol{\hat{y}}) - \boldsymbol{\hat{y}}\boldsymbol{\hat{y}}^{\mathsf{T}}
+    \right)
+\left(
+    \text{diag}(\boldsymbol{\hat{y}})^{-1}(-\boldsymbol{y})
+    \right)\\
+&=
+\left(
+\boldsymbol{I-\hat{y}}\boldsymbol{1_c}^{\mathsf{T}}
+\right)(-\boldsymbol{y})\\
+&=
+\boldsymbol{\hat{y}-y}
+\end{aligned} \tag{3.1.4}</script><p>where the training target $ \boldsymbol{y} $ is a basic vector [0,…,0,1,0,…,0] with a 1 at the postion $ i $.</p>
+<h3 id="Example-2"><a href="#Example-2" class="headerlink" title="Example 2"></a>Example 2</h3><p>&emsp;Now, we consider a slightly more complicate example: computation of $\nabla_{\boldsymbol{h}^{(t)}}L$.<br>Walking through computational graph backforward, it’s easy to get the gradient at the final time step $ \tau $ because the $\boldsymbol{h}^{(t)}$ has only a descendent $\boldsymbol{o}^{(t)}$: </p>
+<script type="math/tex; mode=display">
+\nabla_{\boldsymbol{h}^{(t)}}L = \boldsymbol{V}^{\mathsf{T}}\nabla_{\boldsymbol{o}^{(t)}}L \tag{3.2.1}</script><p>However, we should note that the $\boldsymbol{h}^{(t)}$ has both $\boldsymbol{o}^{(t)}$ and $\boldsymbol{h}^{(t+1)}$ as descendents from $ t = \tau - 1 $ down to $t = 1$. Consequently, the gradient is given by:</p>
+<script type="math/tex; mode=display">
+\nabla_{\boldsymbol{h}^{(t)}}L = 
+\left(
+    \frac{\partial{\boldsymbol{h}^{(t+1)}}}{\partial{\boldsymbol{h}^{(t)}}}
+\right)^{\mathsf{T}}\nabla_{\boldsymbol{h}^{(t+1)}}L
++
+\boldsymbol{V}^{\mathsf{T}}\nabla_{\boldsymbol{o}^{(t)}}L \tag{3.2.2}</script><p>Taking the two cases above into account, we have:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_{\boldsymbol{h}^{(t)}}L 
+&= 
+\begin{cases}
+\boldsymbol{V}^{\mathsf{T}}\nabla_{\boldsymbol{o}^{(t)}}L, & \qquad \text{if t at the final time step }\tau \\
+\boldsymbol{W}^{\mathsf{T}}\text{diag}\left(
+    1-(\boldsymbol{h}^{(t+1)})^2
+    \right)
+    (\nabla_{\boldsymbol{h}^{(t+1)}}L)
++
+\boldsymbol{V}^{\mathsf{T}}\nabla_{\boldsymbol{o}^{(t)}}L, & \qquad 1\le t \le \tau - 1\\
+\end{cases}\\
+\end{aligned} \tag{3.2.3}</script><h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h3><p>&emsp;Once the gradients on internal nodes were computed, we can take the derivatives of the parameters, e.g. $ \boldsymbol{W} $, $ \boldsymbol{V} $. Noticing that the parameters are shared across the time steps, we will introduce some dummy variables such as $\boldsymbol{W}^{(t)}$ that are define to be copies of parameter but with each only used at time step $t$, which will be accumulated from $ t = \tau $ down to $ t = 0 $ so that we can obtain the gradient $ \nabla_{\boldsymbol{W}}L $ at the end of a backward propagation.<br>Applying the notations above, the gradient on the parameter $\nabla_{\boldsymbol{V}}L $ is given by:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_{\boldsymbol{V}}L &= \sum_{t = 0}^{\tau}\nabla_{\boldsymbol{V}^{(t)}}L\\
+&= 
+\sum_{t = 0}^{\tau}\left[
+\begin{matrix}
+\text{tr}\left(
+(\nabla_{\boldsymbol{o}^{(t)}}L)^{\mathsf{T}}\frac{\partial{\boldsymbol{o}^{(t)}}}{\partial{\boldsymbol{V}_{11}}}
+\right) &\cdots & \text{tr}\left(
+(\nabla_{\boldsymbol{o}^{(t)}}L)^{\mathsf{T}}\frac{\partial{\boldsymbol{o}^{(t)}}}{\partial{\boldsymbol{V}_{1n}}}
+\right)\\ 
+\vdots &\ddots & \vdots\\
+\text{tr}\left(
+(\nabla_{\boldsymbol{o}^{(t)}}L)^{\mathsf{T}}\frac{\partial{\boldsymbol{o}^{(t)}}}{\partial{\boldsymbol{V}_{n1}}}
+\right) &\cdots & \text{tr}\left(
+(\nabla_{\boldsymbol{o}^{(t)}}L)^{\mathsf{T}}\frac{\partial{\boldsymbol{o}^{(t)}}}{\partial{\boldsymbol{V}_{nn}}}
+\right) 
+\end{matrix}\right]
+\\
+&=
+\sum_{t = 0}^{\tau}\left[\begin{matrix}
+(\nabla_{\boldsymbol{o}^{(t)}}L)_{1}\boldsymbol{h}^{(t)}_{1} & \cdots & (\nabla_{\boldsymbol{o}^{(t)}}L)_{1}\boldsymbol{h}^{(t)}_{n}\\
+\vdots &\ddots & \vdots\\
+(\nabla_{\boldsymbol{o}^{(t)}}L)_{n}\boldsymbol{h}^{(t)}_{1} & \cdots & (\nabla_{\boldsymbol{o}^{(t)}}L)_{n}\boldsymbol{h}^{(t)}_{n}
+\end{matrix}\right]
+\\
+&=
+\sum_{t = 0}^{\tau}(\nabla_{\boldsymbol{o}^{(t)}}L){\boldsymbol{h}^{(t)}}^{\mathsf{T}}
+\end{aligned} \tag{3.3.1}</script><p>In fact, inspired by the relationship between total derivative and partial derivative in multivariable calculus:</p>
+<script type="math/tex; mode=display">
+\text{d}f = \sum_{i=1}^{n}\frac{\partial{f}}{\partial{x_i}}\text{d}x_i \tag{3.3.2}</script><p>which can be written in vector form as:</p>
+<script type="math/tex; mode=display">
+\text{d}f = \left(
+\frac{\partial{f}}{\partial{\boldsymbol{x}}}
+\right)^{\mathsf{T}}
+\text{d}\boldsymbol{x} \tag{3.3.3}</script><p>we can obtian the relationship between total derivative and partial derivative in matrix calcalus:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\text{d}f &= \sum_{i=1}^{m}\sum_{j=1}^{n}
+\frac{\partial{f}}{\partial{\boldsymbol{X}_{ij}}}\text{d}\boldsymbol{X}_{ij}\\
+&=
+\text{tr}\left(
+\left(
+    \frac{\partial{f}}{\partial{\boldsymbol{X}}}
+\right)^{\mathsf{T}}
+\text{d}\boldsymbol{X}
+\right)
+\end{aligned} \tag{3.3.4}</script><p>Now, we can skip the tedious process (3.3.1) by applying (3.3.4) for gradient $ \nabla_{\boldsymbol{V}}L $:</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\text{d}L &= \text{tr}\left(
+\left(
+\frac{\partial{L}}{\partial{\boldsymbol{o}^{(t)}}}
+\right)^{\mathsf{T}}
+\text{d}\boldsymbol{o}^{(t)}
+\right)\\
+&=
+\text{tr}\left(
+\left(
+    \frac{\partial{L}}{\partial{\boldsymbol{o}^{(t)}}}
+\right)^{\mathsf{T}}
+\text{d}\left(
+\boldsymbol{c} + \boldsymbol{V}^{(t)}\boldsymbol{h}^{(t)}
+\right)
+\right)\\
+&=
+\text{tr}\left(
+\left(
+    \frac{\partial{L}}{\partial{\boldsymbol{o}^{(t)}}}
+\right)^{\mathsf{T}}
+\left(
+\left(\text{d}
+\boldsymbol{V}^{(t)}
+\right)\boldsymbol{h}^{(t)}
++
+\boldsymbol{V}^{(t)}\text{d}\boldsymbol{h}^{(t)}
+\right)
+\right)\\
+&=
+\text{tr}\left(
+\left(
+    \frac{\partial{L}}{\partial{\boldsymbol{o}^{(t)}}}
+\right)^{\mathsf{T}}
+\left(\text{d}
+\boldsymbol{V}^{(t)}
+\right)\boldsymbol{h}^{(t)}
+\right)\\
+&=
+\text{tr}\left(
+    \boldsymbol{h}^{(t)}
+\left(
+    \frac{\partial{L}}{\partial{\boldsymbol{o}^{(t)}}}
+\right)^{\mathsf{T}}
+\left(\text{d}
+\boldsymbol{V}^{(t)}
+\right)
+\right) 
+\end{aligned} \tag{3.3.5}</script><p>We could derive the result by comparing (3.3.4) with (3.3.5):</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_{\boldsymbol{V}^{(t)}}L &= \frac{\partial{L}}{\partial{\boldsymbol{V}^{(t)}}}\\
+&=
+\left(
+\boldsymbol{h}^{(t)}
+\left(
+    \frac{\partial{L}}{\partial{\boldsymbol{o}^{(t)}}}
+\right)^{\mathsf{T}}
+\right)^{\mathsf{T}}\\
+&=
+\frac{\partial{L}}{\partial{\boldsymbol{o}^{(t)}}}{\boldsymbol{h}^{(t)}}^{\mathsf{T}}\\
+&=
+\left(
+\nabla_{\boldsymbol{o}^{(t)}}L
+\right){\boldsymbol{h}^{(t)}}^{\mathsf{T}}
+\end{aligned}   \tag{3.3.6}</script><script type="math/tex; mode=display">
+\begin{aligned}
+\nabla_{\boldsymbol{V}}L &= \sum_{i=0}^{\tau}\nabla_{\boldsymbol{V}^{(t)}}L\\
+&=
+\sum_{i=0}^{\tau}
+\left(
+\nabla_{\boldsymbol{o}^{(t)}}L
+\right){\boldsymbol{h}^{(t)}}^{\mathsf{T}}
+\end{aligned}   \tag{3.3.7}</script><p>Similarly, using the equation (3.3.4), the gradient on remaining parameters is quite easy to get and we can gather these gradients as follows:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\nabla_{\boldsymbol{o}^{(t)}}L &= \boldsymbol{\hat{y}-y} \tag{3.3.8} \\
+\nabla_{\boldsymbol{h}^{(t)}}L 
+&= 
+\begin{cases}
+\boldsymbol{V}^{\mathsf{T}}\nabla_{\boldsymbol{o}^{(t)}}L, & \qquad \text{if t at the final time step }\tau \\
+\boldsymbol{W}^{\mathsf{T}}\text{diag}\left(
+    1-(\boldsymbol{h}^{(t+1)})^2
+    \right)
+    (\nabla_{\boldsymbol{h}^{(t+1)}}L)
++
+\boldsymbol{V}^{\mathsf{T}}\nabla_{\boldsymbol{o}^{(t)}}L, & \qquad 1\le t \le \tau - 1\\
+\end{cases} \tag{3.3.9} \\
+\nabla_{\boldsymbol{c}}L &= \sum_{t}\nabla_{\boldsymbol{o}^{(t)}}L \tag{3.3.10} \\
+\nabla_{\boldsymbol{b}}L &= \sum_{t}\text{diag}\left(1-\left(\boldsymbol{h}^{(t)}\right)^{2}\right)\nabla_{\boldsymbol{h}^{(t)}}L \tag{3.3.11} \\
+\nabla_{\boldsymbol{V}}L &= \sum_{t}\left(
+\nabla_{\boldsymbol{o}^{(t)}}L
+\right){\boldsymbol{h}^{(t)}}^{\mathsf{T}} \tag{3.3.12} \\
+\nabla_{\boldsymbol{W}}L &= \sum_{t}\text{diag}\left(1-\left(\boldsymbol{h}^{(t)}\right)^{2}\right)\left(\nabla_{\boldsymbol{h}^{(t)}}L\right){\boldsymbol{h}^{t-1}}^{\mathsf{T}} \tag{3.3.13} \\
+\nabla_{\boldsymbol{U}}L &= \sum_{t}\text{diag}\left(1-\left(\boldsymbol{h}^{(t)}\right)^{2}\right)\left(\nabla_{\boldsymbol{h}^{(t)}}L\right){\boldsymbol{x}^{(t)}}^{\mathsf{T}} \tag{3.3.14}
+\end{align*}</script>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RNN/" rel="tag"><i class="fa fa-tag"></i> RNN</a>
+          
+            <a href="/tags/BPTT/" rel="tag"><i class="fa fa-tag"></i> BPTT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/23/LSTM/" rel="next" title="An Overview to LSTM">
+                <i class="fa fa-chevron-left"></i> An Overview to LSTM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -357,6 +794,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -377,8 +821,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -395,7 +848,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -406,7 +859,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -417,7 +870,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -465,6 +918,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Notations"><span class="nav-number">1.</span> <span class="nav-text">Notations</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Review-of-RNN"><span class="nav-number">2.</span> <span class="nav-text">Review of RNN</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Taking-the-Derivatives"><span class="nav-number">3.</span> <span class="nav-text">Taking the Derivatives</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-1"><span class="nav-number">3.1.</span> <span class="nav-text">Example 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-2"><span class="nav-number">3.2.</span> <span class="nav-text">Example 2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-3"><span class="nav-number">3.3.</span> <span class="nav-text">Example 3</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -620,6 +1089,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
