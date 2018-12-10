@@ -88,19 +88,19 @@
 
 
 
-<meta name="description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN">
+<meta name="description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy to get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on R">
 <meta name="keywords" content="RNN,BPTT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="The Computation of Gradients on RNN by BPTT">
 <meta property="og:url" content="http://jimleungjing.github.io/2018/11/08/BPTT/index.html">
 <meta property="og:site_name" content="Jim&#39;s Starship">
-<meta property="og:description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN">
+<meta property="og:description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy to get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on R">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://jimleungjing.github.io/2018/11/08/BPTT/RNN.png">
-<meta property="og:updated_time" content="2018-11-18T14:09:27.000Z">
+<meta property="og:updated_time" content="2018-11-25T13:59:28.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="The Computation of Gradients on RNN by BPTT">
-<meta name="twitter:description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN">
+<meta name="twitter:description" content="&amp;emsp;As a beginner of deep learning, it’s quite easy to get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on R">
 <meta name="twitter:image" content="http://jimleungjing.github.io/2018/11/08/BPTT/RNN.png">
 
 
@@ -432,15 +432,15 @@
       
 
       
-        <p>&emsp;As a beginner of deep learning, it’s quite easy get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN by backforward propagation through time(BPTT). I assume that you have known the concept of backward-propagation algorithm, <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener">recurrent neural networks</a>(RNN), <a href="http://math.mit.edu/~gs/linearalgebra/" target="_blank" rel="noopener">linear algebra</a> and <a href="https://en.wikipedia.org/wiki/Matrix_calculus" target="_blank" rel="noopener">matrix calculus</a> before the exploration.</p>
+        <p>&emsp;As a beginner of deep learning, it’s quite easy to get lost when you attempt to compute the gradient on a recurrent neural network(RNN). Therefore, we will give the computation of gradients on RNN by backforward propagation through time(BPTT). I assume that you have known the concept of backward-propagation algorithm, <a href="https://en.wikipedia.org/wiki/Recurrent_neural_network" target="_blank" rel="noopener">recurrent neural networks</a>(RNN), <a href="http://math.mit.edu/~gs/linearalgebra/" target="_blank" rel="noopener">linear algebra</a> and <a href="https://en.wikipedia.org/wiki/Matrix_calculus" target="_blank" rel="noopener">matrix calculus</a> before the exploration.</p>
 <h2 id="Notations"><a href="#Notations" class="headerlink" title="Notations"></a>Notations</h2><p>&emsp;These notations used in the following computation refer to the book <a href="http://www.deeplearningbook.org" target="_blank" rel="noopener"><em>Deep Learning</em></a>.<br>$<br>\begin{array}{l|l}\hline<br>a &amp; \text{Scalar a}\\\hline<br>\boldsymbol{x} &amp; \text{Vector x} \\\hline<br>\boldsymbol{1}_{n} &amp; \text{A vector [1,1,…,1] with n column}\\\hline<br>\boldsymbol{A} &amp; \text{Matrix A}\\\hline<br>\boldsymbol{A}^{-1} &amp; \text{The inverse matrix of matrix A}\\\hline<br>\boldsymbol{A}^{\mathsf{T}} &amp; \text{Transpose of matrix A}\\\hline<br>\text{diag}(\boldsymbol{a}) &amp; \text{Diagnal matrix with diagnal entries gieven by }\boldsymbol{a}\\\hline<br>\boldsymbol{I} &amp; \text{Identity matrix}\\\hline<br>\nabla_{\boldsymbol{x}}y &amp; \text{Gradient }y\text{ with respect to }\boldsymbol{x} \\\hline<br>\frac{\partial{y}}{\partial{x}} &amp; \text{Partial derivative of } y \text{ with respect to }x\\\hline<br>\frac{\partial{\boldsymbol{y}}}{\partial{\boldsymbol{x}}} &amp; \text{Jacobian matrix }\boldsymbol{J} \in \mathbb{R}^{m \times n} \text{of } f:\mathbb{R}^{n}\to\mathbb{R}^{m} \\\hline<br>\end{array}<br>$</p>
 <h2 id="Review-of-RNN"><a href="#Review-of-RNN" class="headerlink" title="Review of RNN"></a>Review of RNN</h2><!--
 在align环境中根据'&'对齐文本
 -->
 <p><center><img src="/2018/11/08/BPTT/RNN.png" alt="The computational graph of RNN" width="70%" length="70%"></center></p>
 <p></p><p style="text-align:center">
-Fig 2.1: The computational graph of RNN, copied from <i>Deep Leaerning</i>
-</p><br>&emsp;Let’s develop the forward propagation equations for the RNN dipcted in Fig 2.1. As a convenience, we use right superscription to indiacte the specified state of RNN at some time $ t $.<br>To represent the hidden units of the network, we use the variable $ \boldsymbol{h} $, which will be the input of hyperbolic tangent activation function. As you see, the RNN has input-to-hidden connections parametrized by a weight matrix $ \boldsymbol{U} $, hidden-to-hidden connections parametrized by a weight matrix $ \boldsymbol{W} $, hidden-to-output connections parametrized by a weight matrix $ \boldsymbol{V} $. We can apply the softmax operation to the output $ \boldsymbol{o} $ to obtain a vector $ \boldsymbol{\hat{y}} $ of normalized probabilities over the output. We define the loss function as the negative log-likelihood of output vector $ \boldsymbol{\hat{y}} $ given the training target $ \boldsymbol{y} $. With notations and definitions made, we have the following equations:<p></p>
+Figure 2.1: The computational graph of RNN @<i><a href="http://www.deeplearningbook.org" target="_blank" rel="noopener">Deep Leaerning</a></i>
+</p><br>&emsp;Let’s develop the forward propagation equations for the RNN dipcted in Figure 2.1. As a convenience, we use right superscription to indiacte the specified state of RNN at some time $ t $.<br>To represent the hidden units of the network, we use the variable $ \boldsymbol{h} $, which will be the input of hyperbolic tangent activation function. As you see, the RNN has input-to-hidden connections parametrized by a weight matrix $ \boldsymbol{U} $, hidden-to-hidden connections parametrized by a weight matrix $ \boldsymbol{W} $, hidden-to-output connections parametrized by a weight matrix $ \boldsymbol{V} $. We can apply the softmax operation to the output $ \boldsymbol{o} $ to obtain a vector $ \boldsymbol{\hat{y}} $ of normalized probabilities over the output. We define the loss function as the negative log-likelihood of output vector $ \boldsymbol{\hat{y}} $ given the training target $ \boldsymbol{y} $. With notations and definitions made, we have the following equations:<p></p>
 <script type="math/tex; mode=display">
 \left\{
 \begin{aligned}
@@ -450,7 +450,8 @@ Fig 2.1: The computational graph of RNN, copied from <i>Deep Leaerning</i>
 \boldsymbol{\hat{y}}^{(t)} &= \text{softmax}(\boldsymbol{o}^{(t)}) &\qquad (2.4)\\
 L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{(t)}) &\qquad (2.5)
 \end{aligned}
-\right.</script><h2 id="Taking-the-Derivatives"><a href="#Taking-the-Derivatives" class="headerlink" title="Taking the Derivatives"></a>Taking the Derivatives</h2><p>&emsp;Known the notations and concepts above, we can compute the gradients by BPTT using the <a href="https://en.wikipedia.org/wiki/Matrix_calculus#Identities" target="_blank" rel="noopener">identities</a> below.</p>
+\right.</script><p>where both $ \text{tanh} $ and $\text{log}$ are element-wise function.</p>
+<h2 id="Taking-the-Derivatives"><a href="#Taking-the-Derivatives" class="headerlink" title="Taking the Derivatives"></a>Taking the Derivatives</h2><p>&emsp;Known the notations and concepts above, we can compute the gradients by BPTT using the <a href="https://en.wikipedia.org/wiki/Matrix_calculus#Identities" target="_blank" rel="noopener">identities</a> below.</p>
 <div class="table-container">
 <table>
 <thead>
@@ -581,7 +582,7 @@ L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{
 +
 \boldsymbol{V}^{\mathsf{T}}\nabla_{\boldsymbol{o}^{(t)}}L, & \qquad 1\le t \le \tau - 1\\
 \end{cases}\\
-\end{aligned} \tag{3.2.3}</script><h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h3><p>&emsp;Once the gradients on internal nodes were computed, we can take the derivatives of the parameters, e.g. $ \boldsymbol{W} $, $ \boldsymbol{V} $. Noticing that the parameters are shared across the time steps, we will introduce some dummy variables such as $\boldsymbol{W}^{(t)}$ that are define to be copies of parameter but with each only used at time step $t$, which will be accumulated from $ t = \tau $ down to $ t = 0 $ so that we can obtain the gradient $ \nabla_{\boldsymbol{W}}L $ at the end of a backward propagation.<br>Applying the notations above, the gradient on the parameter $\nabla_{\boldsymbol{V}}L $ is given by:</p>
+\end{aligned} \tag{3.2.3}</script><h3 id="Example-3"><a href="#Example-3" class="headerlink" title="Example 3"></a>Example 3</h3><p>&emsp;Once the gradients on internal nodes were computed, we can take the derivatives of the parameters, e.g. $ \boldsymbol{W} $, $ \boldsymbol{V} $. Notice that the parameters are shared across the time steps, we will introduce some dummy variables such as $\boldsymbol{W}^{(t)}$ that are define to be copies of parameter but with each only used at time step $t$, which will be accumulated from $ t = \tau $ down to $ t = 0 $ so that we can obtain the gradient $ \nabla_{\boldsymbol{W}}L $ at the end of a backward propagation.<br>Applying the notations above, the gradient on the parameter $\nabla_{\boldsymbol{V}}L $ is given by:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \nabla_{\boldsymbol{V}}L &= \sum_{t = 0}^{\tau}\nabla_{\boldsymbol{V}^{(t)}}L\\
@@ -629,7 +630,7 @@ L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{
 \right)^{\mathsf{T}}
 \text{d}\boldsymbol{X}
 \right)
-\end{aligned} \tag{3.3.4}</script><p>Now, we can skip the tedious process (3.3.1) by applying (3.3.4) for gradient $ \nabla_{\boldsymbol{V}}L $:</p>
+\end{aligned} \tag{3.3.4}</script><p>Now, we can skip the tedious process (3.3.1) by applying eq. (3.3.4) for gradient $ \nabla_{\boldsymbol{V}}L $:</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \text{d}L &= \text{tr}\left(
@@ -679,7 +680,7 @@ L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{
 \boldsymbol{V}^{(t)}
 \right)
 \right) 
-\end{aligned} \tag{3.3.5}</script><p>We could derive the result by comparing (3.3.4) with (3.3.5):</p>
+\end{aligned} \tag{3.3.5}</script><p>We could derive the result by comparing eq. (3.3.4) with eq. (3.3.5):</p>
 <script type="math/tex; mode=display">
 \begin{aligned}
 \nabla_{\boldsymbol{V}^{(t)}}L &= \frac{\partial{L}}{\partial{\boldsymbol{V}^{(t)}}}\\
@@ -724,7 +725,7 @@ L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{
 \nabla_{\boldsymbol{V}}L &= \sum_{t}\left(
 \nabla_{\boldsymbol{o}^{(t)}}L
 \right){\boldsymbol{h}^{(t)}}^{\mathsf{T}} \tag{3.3.12} \\
-\nabla_{\boldsymbol{W}}L &= \sum_{t}\text{diag}\left(1-\left(\boldsymbol{h}^{(t)}\right)^{2}\right)\left(\nabla_{\boldsymbol{h}^{(t)}}L\right){\boldsymbol{h}^{t-1}}^{\mathsf{T}} \tag{3.3.13} \\
+\nabla_{\boldsymbol{W}}L &= \sum_{t}\text{diag}\left(1-\left(\boldsymbol{h}^{(t)}\right)^{2}\right)\left(\nabla_{\boldsymbol{h}^{(t)}}L\right){\boldsymbol{h}^{(t-1)}}^{\mathsf{T}} \tag{3.3.13} \\
 \nabla_{\boldsymbol{U}}L &= \sum_{t}\text{diag}\left(1-\left(\boldsymbol{h}^{(t)}\right)^{2}\right)\left(\nabla_{\boldsymbol{h}^{(t)}}L\right){\boldsymbol{x}^{(t)}}^{\mathsf{T}} \tag{3.3.14}
 \end{align*}</script>
       
@@ -767,6 +768,10 @@ L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/20/On-the-Difficulty-of-Training-RNN/" rel="prev" title="The Issues on Training RNN">
+                The Issues on Training RNN <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -848,7 +853,7 @@ L^{(t)} &= -{\boldsymbol{y}^{(t)}}^{\mathsf{T}}\text{log}(\boldsymbol{\hat{y}}^{
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

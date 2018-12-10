@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Welcome!">
+  <meta name="keywords" content="RNN,">
 
 
 
@@ -88,17 +88,18 @@
 
 
 
-<meta name="description" content="Nothing is impossible">
-<meta property="og:type" content="website">
-<meta property="og:title" content="All tags">
-<meta property="og:url" content="http://jimleungjing.github.io/tags/index.html">
+<meta name="description" content="&amp;emsp;In this post, we are going to briefly discuss the issues of training recurrent neural network(RNN)—the exploding and vanishing gradient problems. To learn further about the mechanism, we recomm">
+<meta name="keywords" content="RNN">
+<meta property="og:type" content="article">
+<meta property="og:title" content="The Issues on Training RNN">
+<meta property="og:url" content="http://jimleungjing.github.io/2018/11/20/On-the-Difficulty-of-Training-RNN/index.html">
 <meta property="og:site_name" content="Jim&#39;s Starship">
-<meta property="og:description" content="Nothing is impossible">
+<meta property="og:description" content="&amp;emsp;In this post, we are going to briefly discuss the issues of training recurrent neural network(RNN)—the exploding and vanishing gradient problems. To learn further about the mechanism, we recomm">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-10-21T12:20:47.000Z">
+<meta property="og:updated_time" content="2018-12-10T12:54:16.185Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="All tags">
-<meta name="twitter:description" content="Nothing is impossible">
+<meta name="twitter:title" content="The Issues on Training RNN">
+<meta name="twitter:description" content="&amp;emsp;In this post, we are going to briefly discuss the issues of training recurrent neural network(RNN)—the exploding and vanishing gradient problems. To learn further about the mechanism, we recomm">
 
 
 
@@ -128,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://jimleungjing.github.io/tags/">
+  <link rel="canonical" href="http://jimleungjing.github.io/2018/11/20/On-the-Difficulty-of-Training-RNN/">
 
 
 
 
 
-  <title>All tags | Jim's Starship</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>The Issues on Training RNN | Jim's Starship</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -307,40 +308,252 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://jimleungjing.github.io/2018/11/20/On-the-Difficulty-of-Training-RNN/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Jim Leung">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/image/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Jim's Starship">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">All tags</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-                5 tags in total
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/BPTT/" style="font-size: 12px; color: #ccc">BPTT</a> <a href="/tags/Deep-Learning/" style="font-size: 12px; color: #ccc">Deep Learning</a> <a href="/tags/LSTM/" style="font-size: 12px; color: #ccc">LSTM</a> <a href="/tags/Machine-Learning/" style="font-size: 12px; color: #ccc">Machine Learning</a> <a href="/tags/RNN/" style="font-size: 30px; color: #111">RNN</a>
-            </div>
-          </div>
+          <h1 class="post-title" itemprop="name headline">The Issues on Training RNN</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-20T18:12:01+08:00">
+                2018-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Paper-Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Paper Notes</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/20/On-the-Difficulty-of-Training-RNN/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/11/20/On-the-Difficulty-of-Training-RNN/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2018/11/20/On-the-Difficulty-of-Training-RNN/" class="leancloud_visitors" data-flag-title="The Issues on Training RNN">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <!--
+1.       Problem: the problem to be solved, proposed by the author
+
+2.       Solution: how the author solves the proposed problem
+
+3.       Novelty: the difference from previous related work, and pick out the most related paper
+
+4.       Take-away: what you learn from this paper and want to remember
+-->
+<p>&emsp;In this post, we are going to briefly discuss the issues of training recurrent neural network(RNN)—the exploding and vanishing gradient problems. To learn further about the mechanism, we recommend reading the paper <a href="https://arxiv.org/pdf/1211.5063.pdf" target="_blank" rel="noopener">On the difficulty of training recurrent neural networks, R. Pascanu et al. (2012)</a> or <a href="http://ai.dinfo.unifi.it/paolo//ps/tnn-94-gradient.pdf" target="_blank" rel="noopener">Learning Long-Term Dependencies with Gradient Descent is Difficult, Bengio, et al. (1994)</a> for a formal and detailed theory. And this post is mainly based on the former paper.</p>
+<h2 id="Exploding-and-Vanishing-Gradient"><a href="#Exploding-and-Vanishing-Gradient" class="headerlink" title="Exploding and Vanishing Gradient"></a>Exploding and Vanishing Gradient</h2><h3 id="RNN-Model"><a href="#RNN-Model" class="headerlink" title="RNN Model"></a>RNN Model</h3><p>&emsp;Using the notations in my another post: <a href="">The Computation of Gradients on RNN by BPTT</a>, also referred to the <a href="http://www.deeplearningbook.org" target="_blank" rel="noopener"><em>Deep Learning</em></a>, a RNN model with input $\boldsymbol{x}$ and hidden units $\boldsymbol{h}$ at time step $t$ is given by:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\boldsymbol{h}^{(t)} &= \sigma(\boldsymbol{Ux}^{(t)}+\boldsymbol{Wh}^{(t-1)}+\boldsymbol{b}) \tag{1}
+\end{align*}</script><p>where the parameters $\boldsymbol{U}$, $\boldsymbol{W}$, $\boldsymbol{b}$ represent the input-to-hidden connections,hidden-to-hidden connections and bias vector respectively, and $\sigma$ is denoted as an activation function.</p>
+<h3 id="Mechanism"><a href="#Mechanism" class="headerlink" title="Mechanism"></a>Mechanism</h3><p>&emsp;As a convenience, we here will take the weight matrix $\boldsymbol{W}$ for example to analyze the exploding and vanishing gradients problems. Introduced in <a href="http://www.deeplearningbook.org" target="_blank" rel="noopener"><em>Deep Learning</em></a>, variable $\boldsymbol{W}^{(t)}$, which is defined to be the copy of weight matrix $\boldsymbol{W}$ used only in time $t$, will be used in the computation of $\frac{\partial{L}}{\partial{\boldsymbol{W}}}$ by accumulating the factor $\frac{\partial{L}}{\partial{\boldsymbol{W}^{(t)}}} $ through time. The computation of gradient $\frac{\partial{L}}{\partial{\boldsymbol{W}}}$ can be written in a sum-of-products form as follows:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\frac{\partial{L}}{\partial{\boldsymbol{W}}} &=
+\sum_{1 \le t \le \tau}\frac{\partial{L}}{\partial{\boldsymbol{W}^{(t)}}} \tag{2}\\
+\frac{\partial{L}}{\partial{\boldsymbol{W}^{(t)}}} &=
+\sum_{t \le k \le \tau}\frac{\partial{L}^{(k)}}{\partial{\boldsymbol{h}^{(k)}}}
+\frac{\partial{\boldsymbol{h}^{(k)}}}{\partial{\boldsymbol{h}^{(t)}}}
+\frac{\partial{\boldsymbol{h}^{(t)}}}{\partial{\boldsymbol{W}^{(t)}}} \tag{3} \\
+\frac{\partial{\boldsymbol{h}^{(k)}}}{\partial{\boldsymbol{h}^{(t)}}} &=
+\prod_{t \lt i \le k}\frac{\partial{\boldsymbol{h}^{(i)}}}{\partial{\boldsymbol{h}^{(i-1)}}} = 
+\prod_{t \lt i \le k}\boldsymbol{W}^{\mathsf{T}}\text{diag}(\sigma'(\boldsymbol{h}^{(i-1)})) \tag{4}
+\end{align*}</script><p>where $\sigma’$ computes element-wise the derivative of $\sigma$.<br>As the equation (3) shows, gradient term $\frac{\partial{L}}{\partial{\boldsymbol{W}^{(t)}}} $ consists of temporal components $\frac{\partial{L}^{(k)}}{\partial{\boldsymbol{h}^{(k)}}}<br>\frac{\partial{\boldsymbol{h}^{(k)}}}{\partial{\boldsymbol{h}^{(t)}}}\frac{\partial{\boldsymbol{h}^{(t)}}}{\partial{\boldsymbol{W}^{(t)}}}$ that measures how $L$ at setp $k$ affects the gradient at step $t \lt k$. Notice that factor $\frac{\partial{\boldsymbol{h}^{(k)}}}{\partial{\boldsymbol{h}^{(t)}}}$ take the form of a product of $k-t$ Jacobian matrices (see eq. (4)), naturally, we’d think it behaves in the same way a product of $k-t$ real number $n$ shrink to zero ($0\lt n \lt 1$) or explode to infinity ($n \gt 1$) when $k-t$ approaches to infinity.<br>To formalize these intuitions, in what follows a method proposed by <a href="https://arxiv.org/pdf/1211.5063.pdf" target="_blank" rel="noopener">R. Pascanu et al. (2012)</a> will be used to obtain tight conditions for when the gradients explode or vanish.<br>At first, let’s set $\sigma$ to the identity function in equation (1) so that the $\text{diag}(\sigma’(\boldsymbol{h}^{(i-1)}))$ will be an identity matrix $\boldsymbol{I}$. Consequently, equtaion (4) could be written in a product of $k-t$ matrices form:</p>
+<script type="math/tex; mode=display">
+\frac{\partial{\boldsymbol{h}^{(k)}}}{\partial{\boldsymbol{h}^{(t)}}} = 
+\prod_{t \lt i \le k}\boldsymbol{W}^{\mathsf{T}} = 
+\left(\boldsymbol{W}^{\mathsf{T}}
+\right)^{(k-t)}   \tag{5}</script><p>, and $\boldsymbol{W}$ can be further diagonalized to better understand the $k-t$th power of $\boldsymbol{W}$ if the n by n matrix $\boldsymbol{W}$ has n linearly indepentent eigenvectors:</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+\boldsymbol{W} &= \boldsymbol{S}\boldsymbol{\Lambda}\boldsymbol{S}^{-1} \tag{6}\\
+\left(
+\boldsymbol{W}^{\mathsf{T}}
+\right)^{(k-t)} &= 
+\left(
+\boldsymbol{S}\boldsymbol{\Lambda}^{(k-t)}\boldsymbol{S}^{-1}
+\right)^{\mathsf{T}}    \tag{7}
+\end{align*}</script><p>where $\boldsymbol{\Lambda}$ is the eigenvalue matrix and $\boldsymbol{S}$ is eigenvector matrix. Induced by eq. (7), it’s sufficient for $0 \lt \rho \lt 1$, where the $\rho$ is the spectral radius of the weight matrix $\boldsymbol{W}$, for long term components to vanish (as $t \to \infty$) and necessary for $\rho \gt 1$ for them to blow up.<br>Since the norm is used for matrices to measure the size of a matrix, we  now generalize the reasult above for nonlinear functions $\sigma$ where $|\sigma’(x)|$ is bounded, $\Vert\text{diag}(\sigma’(\boldsymbol{x}))\Vert \le \gamma \in \mathcal{R}$, by relying on singular values.<br>We suppose that it is sufficient for $\lambda_1 \lt \frac{1}{\gamma}$, where $\lambda_1$ is the largest singular value of $\boldsymbol{W}$, for the vanishing gradient problem. Note that Jocabian matrix $\frac{\partial{\boldsymbol{h}^{(i)}}}{\partial{\boldsymbol{h}^{(i-1)}}}$ is given by $\boldsymbol{W}^{\mathsf{T}}\text{diag}(\sigma’(\boldsymbol{h}^{(i-1)}))$, we apply the triangle inequality of 2-norm of matrix to it:</p>
+<script type="math/tex; mode=display">
+\forall i,\ \left\Vert\frac{\partial{\boldsymbol{h}^{(i)}}}{\partial{\boldsymbol{h}^{(i-1)}}}\right\Vert 
+\le 
+\left\Vert\boldsymbol{W}^{\mathsf{T}}\right\Vert \left\Vert\text{diag}(\sigma'(\boldsymbol{h}^{(i-1)})) \right\Vert
+\lt
+\frac{1}{\gamma}\gamma = 1  \tag{8}</script><p>Let $\eta \in \mathbb{R}$ be such that $\forall i, \left\Vert\frac{\partial{\boldsymbol{h}^{(i)}}}{\partial{\boldsymbol{h}^{(i-1)}}} \right\Vert \le \eta \lt 1$, where the existence of $\eta$ is given by eq. (8). With this supremum, we have:</p>
+<script type="math/tex; mode=display">
+\left\Vert
+\frac{\partial{L}^{(k)}}{\partial{\boldsymbol{h}^{(k)}}}
+\frac{\partial{\boldsymbol{h}^{(k)}}}{\partial{\boldsymbol{h}^{(t)}}}
+\frac{\partial{\boldsymbol{h}^{(t)}}}{\partial{\boldsymbol{W}^{(t)}}}
+\right\Vert 
+\le
+\eta^{k-t}
+\left\Vert
+\frac{\partial{L}^{(k)}}{\partial{\boldsymbol{h}^{(k)}}}
+\right\Vert
+\left\Vert
+\frac{\partial{\boldsymbol{h}^{(t)}}}{\partial{\boldsymbol{W}^{(t)}}}
+\right\Vert \tag{9}</script><p>As the equation above shown, the long term contribution will go to 0 exponentially fast as $t-k$ grows because of $\eta \lt 1$. Similarly, we can get the necessary condition for the largest singular value $\lambda_1 \gt \frac{1}{\gamma}$, for the exploding gradient problem. For activation function sigmoid we have $\gamma = \frac{1}{4}$, for tanh we have $\gamma = 1$.</p>
+<h2 id="Solutions-to-the-vanishing-and-exploding-gradient"><a href="#Solutions-to-the-vanishing-and-exploding-gradient" class="headerlink" title="Solutions to the vanishing and exploding gradient"></a>Solutions to the vanishing and exploding gradient</h2><h3 id="Scaling-down-the-exploding-gradient"><a href="#Scaling-down-the-exploding-gradient" class="headerlink" title="Scaling down the exploding gradient"></a>Scaling down the exploding gradient</h3><p>Using L1 or L2 penalty on recurrent weight matrix is a good choice to deal with the exploding gradient problem. Compared with it, clipping the norm of matrix would be more simple and computationally efficient whenever it goes over a threshold although it introduce an additional hyper-parameter. </p>
+<h3 id="Vanishing-gradient-regularization"><a href="#Vanishing-gradient-regularization" class="headerlink" title="Vanishing gradient regularization"></a>Vanishing gradient regularization</h3><p>To address the vanishing gradient problem, <a href="https://www.mitpressjournals.org/doi/pdfplus/10.1162/neco.1997.9.8.1735" target="_blank" rel="noopener">Hochreiter and Schmidhuber (1997)</a> propose the LSTM model that enforcing constant error flow through some special units. And <a href="https://arxiv.org/pdf/1211.5063.pdf" target="_blank" rel="noopener">R. Pascanu et al. (2012)</a> presented a regularization term so that gradients neither increase or decrease in magnitude. But frankly speaking, I can’t catch the point what the regularization term excatly means in mathematics.</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><p>In this post, I simply analyze the exploding and vanishing gradient problems in training RNNs by exploring the norm of gradients on weight matrices due to <a href="https://arxiv.org/pdf/1211.5063.pdf" target="_blank" rel="noopener">R. Pascanu et al. (2012)</a>. The problems seem to be an obstacle keeping people from retaining information from the long time lags. Hopefully, many approaches were suggested to deal with them. For instance, it is universally acknowledged that LSTM models are widely applied in a varity of tasks and lead to the incredible successes. So, I’d like to explore the LSTMs in next post.   </p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/RNN/" rel="tag"><i class="fa fa-tag"></i> RNN</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/08/BPTT/" rel="next" title="The Computation of Gradients on RNN by BPTT">
+                <i class="fa fa-chevron-left"></i> The Computation of Gradients on RNN by BPTT
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -349,6 +562,13 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
 
         </div>
         
@@ -369,8 +589,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -457,6 +686,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Exploding-and-Vanishing-Gradient"><span class="nav-number">1.</span> <span class="nav-text">Exploding and Vanishing Gradient</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#RNN-Model"><span class="nav-number">1.1.</span> <span class="nav-text">RNN Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mechanism"><span class="nav-number">1.2.</span> <span class="nav-text">Mechanism</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Solutions-to-the-vanishing-and-exploding-gradient"><span class="nav-number">2.</span> <span class="nav-text">Solutions to the vanishing and exploding gradient</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Scaling-down-the-exploding-gradient"><span class="nav-number">2.1.</span> <span class="nav-text">Scaling down the exploding gradient</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vanishing-gradient-regularization"><span class="nav-number">2.2.</span> <span class="nav-text">Vanishing gradient regularization</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">3.</span> <span class="nav-text">Conclusion</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
