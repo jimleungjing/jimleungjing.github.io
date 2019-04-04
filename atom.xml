@@ -73,38 +73,4 @@
     
   </entry>
   
-  <entry>
-    <title>An Overview to LSTM</title>
-    <link href="http://jimleungjing.github.io/2018/10/23/LSTM/"/>
-    <id>http://jimleungjing.github.io/2018/10/23/LSTM/</id>
-    <published>2018-10-23T15:53:42.000Z</published>
-    <updated>2018-11-20T10:12:44.756Z</updated>
-    
-    <content type="html"><![CDATA[<!--1.       Problem: the problem to be solved, proposed by the author2.       Solution: how the author solves the proposed problem3.       Novelty: the difference from previous related work, and pick out the most related paper4.       Take-away: what you learn from this paper and want to remember--><h2 id="The-Problem-LSTM-Addressed"><a href="#The-Problem-LSTM-Addressed" class="headerlink" title="The Problem LSTM Addressed"></a>The Problem LSTM Addressed</h2><p>&emsp;In the past decades, recurrent neural networks (RNNs) have been successufully applied to a variety problems: speech recognition, language modeling, prediction, etc. RNNs can use their internal state to process sequences of inputs and persist information as shown below in Fig. 1.<br>&emsp;However, the RNNs don’t seem to be able to learn of long term dependencies in the input/output sequences. It’s believed the reason for that problem is that error signals flowing backward in time tend to blow up or vanish(<a href="http://people.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf" target="_blank" rel="noopener">Hochreiter 1991</a>).</p><h2 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h2><p>&emsp;Fortunately, LSTM address this<br>Learning to store information </p><h2 id="RNN-amp-IIR"><a href="#RNN-amp-IIR" class="headerlink" title="RNN &amp; IIR"></a>RNN &amp; IIR</h2><p>　　The similarity between RNN(Recurrent Neural Network) and IIR(Infinite Inpulse Response) suddenly hit me when I learned the concept about LSTM at first.<br>  I realized that it is similar between RNN and IIR when I first came to the RNN.In the following study, the idea hits me again when learning Adam gredient descent. As a user of Reddit said, it is a two FIR.<br>  I guess that I’m not the first person to conceive the idea of similarity between RNN and IIR. So I Google the key words “IIR LSTM”. Not surprisingly, there are several papers based on the similarity between the IIR and RNN appear in the search results list. In the most recent paper “Feedforward Sequential Memory Networks: A New Structure to Learn Long-term Dependency”, the authors proposed a novel network structure to model sequential signals like speech or language. </p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;!--
-1.       Problem: the problem to be solved, proposed by the author
-
-2.       Solution: how the author solves the proposed problem
-
-3.  
-      
-    
-    </summary>
-    
-      <category term="Paper Notes" scheme="http://jimleungjing.github.io/categories/Paper-Notes/"/>
-    
-    
-      <category term="Machine Learning" scheme="http://jimleungjing.github.io/tags/Machine-Learning/"/>
-    
-      <category term="Deep Learning" scheme="http://jimleungjing.github.io/tags/Deep-Learning/"/>
-    
-      <category term="LSTM" scheme="http://jimleungjing.github.io/tags/LSTM/"/>
-    
-  </entry>
-  
 </feed>
